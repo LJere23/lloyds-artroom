@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: "400",
   variable: "--font-display",
 });
 
