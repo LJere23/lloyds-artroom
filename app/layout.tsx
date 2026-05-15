@@ -1,8 +1,20 @@
 import "./globals.css";
+import { Cormorant_Garamond, Inter } from "next/font/google";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-display",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+});
 
 export const metadata = {
-  title: "Lloyds ArtRoom",
-  description: "Virtual art gallery showcasing custom portraits and artworks",
+  title: "Lloyd's Art Room",
+  description:
+    "Portraits, wildlife studies, and commissioned artworks by Lloyd Gumbo.",
 };
 
 export default function RootLayout({
@@ -12,7 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${cormorant.variable} ${inter.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

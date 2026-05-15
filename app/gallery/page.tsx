@@ -3,50 +3,70 @@ import Link from "next/link";
 const artworks = [
   {
     title: "Lion Charcoal Artwork",
-    description: "Custom charcoal portrait with deep contrast",
+    description: "Charcoal on paper · 40cm × 30cm",
     image: "/art1.jpg",
   },
   {
-    title: "The Priary Dogs",
-    description: "Charcoals on Paper",
+    title: "The Prairie Dogs",
+    description: "Charcoal study on textured paper",
     image: "/art2.jpg",
   },
   {
     title: "Caesar",
-    description: "Charcoals on paper size 40cmx30cm",
+    description: "Portrait study in graphite and charcoal",
     image: "/art3.jpg",
   },
   {
     title: "Bee Eaters",
-    description: "Color Pencil",
+    description: "Colour pencil illustration",
     image: "/art4.jpg",
   },
 ];
 
 export default function Gallery() {
   return (
-    <main className="page-shell gallery-shell">
+    <main className="gallery-page">
       <section className="gallery-header">
-        <div>
-          <h1 className="page-title">Gallery</h1>
-          <p className="page-copy">Selected works & custom portrait showcase</p>
-        </div>
-        <Link href="/" className="back-link">
-          ← Back to Home
-        </Link>
+        <p className="section-label">
+          GALLERY
+        </p>
+
+        <h1 className="gallery-title">
+          Selected Works
+        </h1>
+
+        <p className="gallery-copy">
+          A curated collection of portrait studies,
+          wildlife artworks, and commissioned pieces.
+        </p>
       </section>
 
       <section className="gallery-grid">
         {artworks.map((art, index) => (
-          <article key={index} className="gallery-card">
-            <div className="image-wrapper">
-              <img src={art.image} alt={art.title} className="art-image" />
+          <article key={index} className="gallery-item">
+            <div className="gallery-item-image">
+              <img
+                src={art.image}
+                alt={art.title}
+              />
             </div>
-            <h3>{art.title}</h3>
-            <p>{art.description}</p>
+
+            <h2>
+              {art.title}
+            </h2>
+
+            <p>
+              {art.description}
+            </p>
           </article>
         ))}
       </section>
+
+      <div style={{ marginTop: "100px" }}>
+        <Link href="/" className="secondary-btn">
+          Back Home
+        </Link>
+      </div>
     </main>
   );
 }

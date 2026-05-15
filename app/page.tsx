@@ -1,120 +1,193 @@
-"use client";
+import Link from "next/link";
 
-const artStories = [
+const artworks = [
   {
     image: "/art1.jpg",
     title: "Lion Charcoal Artwork",
-    text:
-      "Charcoals on paper 40cmx30cm"
+    description: "Charcoal on paper · 40cm × 30cm",
   },
   {
     image: "/art2.jpg",
-    title: "The Priary Dogs",
-    text:
-      "Charcoals on paper 40cmx30cm"
+    title: "The Prairie Dogs",
+    description: "Charcoal study on textured paper",
   },
   {
     image: "/art3.jpg",
     title: "Caesar",
-    text:
-      "Charcoals on paper 40cmx30cm"
-  },
-  {
-    image: "/art4.jpg",
-    title: "Bee Eaters",
-    text:
-      "Charcoals on paper 40cmx30cm"
+    description: "Portrait study in graphite and charcoal",
   },
 ];
 
 export default function Home() {
   return (
     <main className="main">
+      <section className="hero">
+        <div className="hero-inner">
+          <div className="hero-copy">
+            <p className="hero-mini">
+              ZIMBABWEAN ARTIST
+            </p>
 
-      {/* ORBS */}
-      <div className="orb orb1"></div>
-      <div className="orb orb2"></div>
-      <div className="orb orb3"></div>
+            <h1 className="hero-title">
+              Lloyd
+              <br />
+              Gumbo
+            </h1>
 
-      {/* HERO */}
-      <section className="intro">
+            <p className="hero-text">
+              A scientist with the soul of an artist.
+              Lloyd Gumbo is a medical laboratory scientist whose work explores
+              the quiet beauty found in people, wildlife, and the natural world.
+              Through charcoal, graphite, paint, and pencil, he captures emotion,
+              texture, and presence with striking intimacy.
+              His art transforms ordinary moments into timeless visual stories.
+            </p>
 
-        <div className="heroGlow"></div>
+            <div className="hero-actions">
+              <Link href="/gallery" className="primary-btn">
+                View Gallery
+              </Link>
 
-        <p className="mini">
-          ARTISTRY IN PORTRAITURE
-        </p>
+              <a href="#commission" className="secondary-btn">
+                Commission Artwork
+              </a>
+            </div>
+          </div>
 
-        <h1>
-          Lloyd's
-          <br />
-          Art Room
-        </h1>
-
-        <p className="heroText">
-          Custom portraits and cinematic visual storytelling.
-          Every portrait tells a story worth preserving.
-        </p>
-
-        <div className="scroll">
-          SCROLL TO EXPLORE
+          <div className="hero-image-wrap">
+            <div className="hero-image-frame">
+              <img
+                src="/art1.jpg"
+                alt="Lloyd Gumbo artwork"
+                className="hero-image"
+              />
+            </div>
+          </div>
         </div>
-
       </section>
 
-      {/* STORY */}
-      {artStories.map((story, i) => (
-        <section
-          key={i}
-          className={`scene ${i % 2 === 0 ? "" : "reverse"}`}
-        >
-
-          <div className="imageWrap">
-            <img src={story.image} alt={story.title} />
-          </div>
-
-          <div className="textWrap">
-
-            {/* LIQUID EDGE LIGHT */}
-            <div className="glassEdge"></div>
-
-            <p className="chapter">
-              CHAPTER {String(i + 1).padStart(2, "0")}
-            </p>
-
-            <h2>
-              {story.title}
-            </h2>
-
-            <div className="line"></div>
-
-            <p className="storyText">
-              {story.text}
-            </p>
-
-          </div>
-
-        </section>
-      ))}
-
-      {/* FINAL CTA */}
-
-      <section className="finale">
-
-        <div className="finalGlass">
-
-          <p className="finalMini">
-            COMMISSION YOUR PORTRAIT
+      <section className="section">
+        <div className="section-inner">
+          <p className="section-label">
+            ABOUT THE ARTIST
           </p>
 
-          <h3>
-            Preserve your story
-            through art.
-          </h3>
+          <h2 className="section-title">
+            Art born from observation.
+          </h2>
 
-          <p className="finalText">
-            Lloyd's Art Room transforms personal narratives into
-            premium custom portrait experiences designed to last.
+          <p className="section-text">
+            Lloyd’s work blends scientific precision with emotional depth.
+            Inspired by wildlife, portraiture, and the natural textures of life,
+            his pieces focus on capturing the essence beneath the surface.
+            Every artwork is approached with patience, craftsmanship, and detail.
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-inner">
+          <p className="section-label">
+            FEATURED WORKS
+          </p>
+
+          <h2 className="section-title">
+            Selected artworks.
+          </h2>
+
+          <div className="works-grid">
+            {artworks.map((art, index) => (
+              <div className="work-card" key={index}>
+                <div className="work-frame">
+                  <img
+                    src={art.image}
+                    alt={art.title}
+                    className="work-image"
+                  />
+                </div>
+
+                <h3 className="work-title">
+                  {art.title}
+                </h3>
+
+                <p className="work-description">
+                  {art.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="commission">
+        <div className="section-inner">
+          <p className="section-label">
+            COMMISSION PROCESS
+          </p>
+
+          <h2 className="section-title">
+            Bringing your vision to life.
+          </h2>
+
+          <div className="process-grid">
+            <div className="process-card">
+              <div className="process-number">
+                STEP 01
+              </div>
+
+              <h3>
+                Consultation
+              </h3>
+
+              <p>
+                Share your idea, reference images, preferred size,
+                and artistic direction.
+              </p>
+            </div>
+
+            <div className="process-card">
+              <div className="process-number">
+                STEP 02
+              </div>
+
+              <h3>
+                Creation
+              </h3>
+
+              <p>
+                The artwork is carefully developed using the chosen
+                medium with attention to emotion and detail.
+              </p>
+            </div>
+
+            <div className="process-card">
+              <div className="process-number">
+                STEP 03
+              </div>
+
+              <h3>
+                Delivery
+              </h3>
+
+              <p>
+                Completed pieces are professionally packaged
+                and prepared for collection or delivery.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta">
+        <div className="cta-box">
+          <h2 className="cta-title">
+            Preserve a memory
+            through art.
+          </h2>
+
+          <p className="cta-text">
+            Original works and custom commissions crafted
+            with patience, detail, and emotional depth.
           </p>
 
           <div className="contact">
@@ -122,17 +195,12 @@ export default function Home() {
               hello@lloydsartroom.com
             </p>
 
-            <span></span>
-
             <p>
-              +1 (555) 123-4567
+              +263 77 000 0000
             </p>
           </div>
-
         </div>
-
       </section>
-
     </main>
   );
 }
